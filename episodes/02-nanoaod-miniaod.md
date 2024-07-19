@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "Differences between NanoAOD and MiniAOD"
 teaching: 10
 exercises: 0
 ---
@@ -8,19 +8,19 @@ exercises: 0
 
 - What have we learned in the pre-exercises and how can we apply it?
 - What is the structure and content of the nanoAOD format?
+- How is it different from miniAOD?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
 - Apply what we have learned in the pre-exercises
-- Learn about the structure and content of nanoAOD
+- Learn about the structure and content of nanoAOD and how it differs from miniAOD
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Dataformats in CMS
 
-miniAOD links for use: [Getting started with miniAOD](https://opendata.cern.ch/docs/cms-getting-started-miniaod), [miniAOD in Workbook](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016#High_level_physics_objects)
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 

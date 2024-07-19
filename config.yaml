@@ -62,17 +62,20 @@ contact: 'cms-dpoa-coordinator@cern.ch' # FIXME
 # - another-learner.md
 
 # Order of episodes in your lesson
-episodes: 
+episodes:
 - introduction.md
+- 02-nanoaod-miniaod.md
+- 03-nanoaod-dataset.md
+- 04-nanoaod-exercises.md
 
 # Information for Learners
-learners: 
+learners:
 
 # Information for Instructors
-instructors: 
+instructors:
 
 # Learner Profiles
-profiles: 
+profiles:
 
 # Customisation ---------------------------------------------
 #
