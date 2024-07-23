@@ -1,69 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/404.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/02-nanoaod-miniaod.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/CODE_OF_CONDUCT.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/03-nanoaod-dataset.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/LICENSE.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/04-nanoaod-exercises.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/aio.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/404.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/images.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/index.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/instructor/404.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/aio.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/instructor/CODE_OF_CONDUCT.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/images.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/instructor/LICENSE.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/index.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/instructor/aio.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/02-nanoaod-miniaod.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/instructor/images.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/03-nanoaod-dataset.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/instructor/index.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/04-nanoaod-exercises.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/instructor/instructor-notes.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/404.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/instructor/introduction.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/instructor/key-points.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/instructor/profiles.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/aio.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/instructor/reference.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/images.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/instructor-notes.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/index.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/introduction.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/instructor-notes.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/key-points.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/introduction.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/profiles.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/key-points.html</loc>
   </url>
   <url>
-    <loc>https://cms-opendata-workshop.github.io/workbench-template-md/reference.html</loc>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/profiles.html</loc>
+  </url>
+  <url>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/reference.html</loc>
+  </url>
+  <url>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/key-points.html</loc>
+  </url>
+  <url>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/profiles.html</loc>
+  </url>
+  <url>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/reference.html</loc>
   </url>
 </urlset>
