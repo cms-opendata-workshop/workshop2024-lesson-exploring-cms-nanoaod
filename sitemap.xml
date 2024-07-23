@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/01-introduction.html</loc>
+  </url>
+  <url>
     <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/02-nanoaod-miniaod.html</loc>
   </url>
   <url>
@@ -26,6 +29,9 @@
   </url>
   <url>
     <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/index.html</loc>
+  </url>
+  <url>
+    <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/01-introduction.html</loc>
   </url>
   <url>
     <loc>https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/02-nanoaod-miniaod.html</loc>
