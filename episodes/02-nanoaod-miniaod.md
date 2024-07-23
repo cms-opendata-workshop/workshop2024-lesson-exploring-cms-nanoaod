@@ -19,8 +19,12 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Dataformats in CMS
 
+TO-DO we can "borrow" information from below:
+
+miniAOD links for use: [Getting started with miniAOD](https://opendata.cern.ch/docs/cms-getting-started-miniaod), [miniAOD in Workbook](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016#High_level_physics_objects)
+
+nanoAOD links for use: [Getting started with nanoAOD](https://opendata.cern.ch/docs/cms-getting-started-nanoaod)
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
