@@ -1,106 +1,40 @@
 ---
-title: "Using Markdown"
+title: "Introduction"
 teaching: 10
-exercises: 2
+exercises: 0
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How do you write a lesson using Markdown and `{sandpaper}`?
+- What have we learned in the pre-exercises and how can we apply it?
+- What is the structure and content of the nanoAOD format?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how to use markdown with The Carpentries Workbench
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+- Apply what we have learned in the pre-exercises
+- Learn about the structure and content of nanoAOD
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Introduction
+## Dataformats in CMS
 
-This is a lesson created via The Carpentries Workbench. It is written in
-[Pandoc-flavored Markdown](https://pandoc.org/MANUAL.txt) for static files and
-[R Markdown][r-markdown] for dynamic files that can render code into output. 
-Please refer to the [Introduction to The Carpentries 
-Workbench](https://carpentries.github.io/sandpaper-docs/) for full documentation.
+Most previous releases of CMS open data have been in the Analysis Object Data (AOD) format. 
+This is a complex format and specific CMS software (CMSSW) is required in order to read and analyze it.
 
-What you need to know is that there are three sections required for a valid
-Carpentries lesson:
+From 2015 data releases have been a slimmed-down format called MiniAOD, which has the same essential structure and software requirements for analysis as AOD. Essentially there are few 
+physics object collections and often the physics objects themselves are different. 
 
- 1. `questions` are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` are the learning objectives for an episode displayed with
-    the questions.
- 3. `keypoints` are displayed at the end of the episode to reinforce the
-    objectives.
+For data released in 2016 and beyond a new format called NanoAOD is used. NanoAOD is not just simply slimmed-down MiniAOD. In contrast to AOD and MiniAOD which is stored in CMSSW C++ objects, NanoAOD is stored using ROOT TTree objects. You therefore do not need to use the CMS Virtual Machine or docker container to analyze NanoAOD data. NanoAOD can be analyzed using the ROOT program and/or python libraries capable of interpreting the ROOT's TTree structure.
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
+TO-DO we can "borrow" information from below:
 
-Inline instructor notes can help inform instructors of timing challenges
-associated with the lessons. They appear in the "Instructor View"
+miniAOD links for use: [Getting started with miniAOD](https://opendata.cern.ch/docs/cms-getting-started-miniaod), [miniAOD in Workbook](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016#High_level_physics_objects)
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::: challenge 
-
-## Challenge 1: Can you do it?
-
-What is the output of this command?
-
-```r
-paste("This", "new", "lesson", "looks", "good")
-```
-
-:::::::::::::::::::::::: solution 
-
-## Output
- 
-```output
-[1] "This new lesson looks good"
-```
-
-:::::::::::::::::::::::::::::::::
+nanoAOD links for use: [Getting started with nanoAOD](https://opendata.cern.ch/docs/cms-getting-started-nanoaod)
 
 
-## Challenge 2: how do you nest solutions within challenge blocks?
-
-:::::::::::::::::::::::: solution 
-
-You can add a line with at least three colons and a `solution` tag.
-
-:::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Figures
-
-You can use standard markdown for static figures with the following syntax:
-
-`![optional caption that appears below the figure](figure url){alt='alt text for
-accessibility purposes'}`
-
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
-
-::::::::::::::::::::::::::::::::::::: callout
-
-Callout sections can highlight information.
-
-They are sometimes used to emphasise particularly important points
-but are also used in some lessons to present "asides": 
-content that is not central to the narrative of the lesson,
-e.g. by providing the answer to a commonly-asked question.
-
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-## Math
-
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
-
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
-
-Cool, right?
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
