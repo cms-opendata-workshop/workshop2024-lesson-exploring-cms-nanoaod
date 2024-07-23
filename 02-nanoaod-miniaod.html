@@ -118,11 +118,11 @@
   Exploring CMS nanoAOD
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 33%" class="percentage">
-    33%
+<aside class="col-md-12 lesson-progress"><div style="width: 30%" class="percentage">
+    30%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 33%" aria-valuenow="33" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 30%" aria-valuenow="30" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -215,12 +215,21 @@
 <div class="accordion accordion-flush" id="accordionFlushcurrent">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-headingcurrent">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
         2. Differences between NanoAOD and MiniAOD
         </span>
-      
+      </button>
     </div><!--/div.accordion-header-->
+
+    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
+      <div class="accordion-body">
+        <ul><li><a href="#what-are-the-differences-between-nanoaod-and-miniaod">What are the differences between NanoAOD and MiniAOD</a></li>
+<li><a href="#nanoaod-with-particle-flow-candidates">NanoAOD with particle flow candidates</a></li>
+<li><a href="#using-miniaod">Using MiniAOD</a></li>
+        </ul></div><!--/div.accordion-body-->
+    </div><!--/div.accordion-collapse-->
 
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
@@ -320,10 +329,10 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>What have we learned in the pre-exercises and how can we apply
-it?</li>
-<li>What is the structure and content of the nanoAOD format?</li>
-<li>How is it different from miniAOD?</li>
+<ul><li>What is the structure and content of the NanoAOD format?</li>
+<li>How is it different from MiniAOD?</li>
+<li>What if the required information is not available in the NanoAOD
+format?</li>
 </ul></div>
 </div>
 </div>
@@ -331,20 +340,56 @@ it?</li>
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>Apply what we have learned in the pre-exercises</li>
-<li>Learn about the structure and content of nanoAOD and how it differs
-from miniAOD</li>
+<ul><li>Learn about the structure and content of NanoAOD and how it differs
+from MiniAOD</li>
+<li>Learn where to find information on how to use MiniAOD</li>
 </ul></div>
 </div>
 </div>
 </div>
 </div>
-<p>TO-DO we can “borrow” information from below:</p>
+<section><h2 class="section-heading" id="what-are-the-differences-between-nanoaod-and-miniaod">What are the differences between NanoAOD and MiniAOD<a class="anchor" aria-label="anchor" href="#what-are-the-differences-between-nanoaod-and-miniaod"></a>
+<a class="anchor" aria-label="anchor" href="#what-are-the-differences-between-nanoaod-and-miniaod"></a></h2>
+<hr class="half-width"><p>In the previous episode, we found the description of the NanoAOD
+variables.</p>
+<p>Let us now compare it to the MiniAOD format. Note that the variable
+descriptions are not available attached to the datasets, but we can have
+a look at the <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016#High_level_physics_objects" class="external-link">MiniAOD
+description in the CMS WorkBook</a>.</p>
+<p>You will see a table starting with:</p>
+<figure><img src="fig/MiniAODTable.png" alt="MiniAOD descripion in the CMS WorkBook" class="figure mx-auto d-block"></figure><p>The objects in the MiniAOD format are C++ classes in CMSSW, the CMS
+Software package, and the table gives the class name. We can find the
+exact class description in the CMSSW reference manual. See, for
+example</p>
+<ul><li><a href="https://cmsdoxygen.web.cern.ch/cmsdoxygen/CMSSW_10_6_25/doc/html/d6/d13/classpat_1_1Muon.html" class="external-link"><code>pat::Muon</code></a></li>
+<li>
+<a href="https://cmsdoxygen.web.cern.ch/cmsdoxygen/CMSSW_10_6_25/doc/html/d2/d1f/classpat_1_1Electron.html" class="external-link"><code>pat::Electron</code></a>.</li>
+</ul><p>These are C++ classes that can <em>inherit</em> information from
+parent classes or contain objects, of some complex types. Therefore,
+some of the variables are not explicitly listed as they are available
+through other objects.</p>
+<p>For example, for MiniAOD, we will not find <code>eta</code> or
+<code>pt</code> explicitly in the class description as they can be
+obtained through the <code>LorentzVector</code> object. This is
+transparent in the code when accessing those values, but much less so in
+the documentation!</p>
+<p>Let us now compare it to NanoAOD. The major difference is that
+MiniAOD contains most of the constituents of a physics object (such as
+tracks and/or calorimeter clusters) whereas NanoAOD only contains some
+information about them.</p>
+</section><section><h2 class="section-heading" id="nanoaod-with-particle-flow-candidates">NanoAOD with particle flow candidates<a class="anchor" aria-label="anchor" href="#nanoaod-with-particle-flow-candidates"></a>
+<a class="anchor" aria-label="anchor" href="#nanoaod-with-particle-flow-candidates"></a></h2>
+<hr class="half-width"><p>Many CMS open data users have relied on the <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016#Packed_ParticleFlow_Candidates" class="external-link">Particle
+flow information</a>, available in the MiniAOD format but not in the
+NanoAOD format. See the class description: <a href="https://cmsdoxygen.web.cern.ch/cmsdoxygen/CMSSW_10_6_25/doc/html/d8/d79/classpat_1_1PackedCandidate.html" class="external-link">`pat::Packe</a>.</p>
+<p>TO-DO find them and compare variable lists</p>
+</section><section><h2 class="section-heading" id="using-miniaod">Using MiniAOD<a class="anchor" aria-label="anchor" href="#using-miniaod"></a>
+<a class="anchor" aria-label="anchor" href="#using-miniaod"></a></h2>
+<hr class="half-width"><p>Demo only,</p>
+<p>show container</p>
+<p>show edmDumpEventContent</p>
 <p>miniAOD links for use: <a href="https://opendata.cern.ch/docs/cms-getting-started-miniaod" class="external-link">Getting
-started with miniAOD</a>, <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016#High_level_physics_objects" class="external-link">miniAOD
-in Workbook</a></p>
-<p>nanoAOD links for use: <a href="https://opendata.cern.ch/docs/cms-getting-started-nanoaod" class="external-link">Getting
-started with nanoAOD</a></p>
+started with miniAOD</a></p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -353,14 +398,13 @@ started with nanoAOD</a></p>
 <h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
 </h3>
 <div class="callout-content">
-<ul><li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
+<ul><li>Analyses that require detailed information about physics object
+constituents may require using MiniAOD instead of NanoAOD</li>
+<li>Selected datasets include Particle flow candidates in an enriched
+NanoAOD format are available and their use does not require using
+CMS-specific software</li>
+<li>CMSSW environment is available as a Docker container and can be used
+to work with MiniAOD</li>
 </ul></div>
 </div>
 </div>
@@ -368,10 +412,7 @@ locally</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-
-
-
-      </div> <!-- / div.lesson-content -->
+</section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="01-introduction.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="03-nanoaod-dataset.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
