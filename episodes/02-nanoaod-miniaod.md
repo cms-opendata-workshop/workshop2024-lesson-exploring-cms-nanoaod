@@ -47,11 +47,13 @@ Can you find the basic variables such as `charge`, `eta` and `pt` for electrons?
 
 :::::::::::::: solution
 
-For NanoAOD, see for example the [SingleElectron dataset](https://opendata.cern.ch/eos/opendata/cms/dataset-semantics/NanoAOD/30529/SingleElectron_doc.html).
+For NanoAOD, see for example the [SingleElectron dataset](https://opendata.cern.ch/eos/opendata/cms/dataset-semantics/NanoAOD/30529/SingleElectron_doc.html). You will find `Electron_charge`, `Electron_eta` and `Electron_pt` in the listing.
 
 For MiniAOD, read the general description in the [WorkBook](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016#High_level_physics_objects) and open the reference page for [`pat::Electron`](https://cmsdoxygen.web.cern.ch/cmsdoxygen/CMSSW_10_6_25/doc/html/d2/d1f/classpat_1_1Electron.html).
 
-For MiniAOD, we will not find `eta` or `pt` explicitly in the class description as they can be obtained through the `LorentzVector` object. This is transparent in the code when accessing those values, but much less so in the documentation!
+For MiniAOD, we will not find `charge`, `eta` or `pt` explicitly in the class description as they were functions inherited from `reco::LeafCandidate`. This is transparent in the code when accessing those values, but much less so in the documentation! You can expand the list of functions inherited for each parent class in the reference manual page:
+
+![](fig/patElectronClassInherited.png){alt='pat Electron class in the reference manual'}
 
 ::::::::::::::
 
@@ -72,7 +74,7 @@ Find information about the calorimeter cluster and the track connected to an ele
 
 In MiniAOD, access to the track information is provided through a member function `gsfTrack`. 
 
-The full track information is not available in NanoAOD, but the most pertinent information from its associated track is its impact parameter with respect to the primary interaction vertex. This information is available in NanoAOD, read more about it in the [pre-learning material](https://cms-opendata-workshop.github.io/workshop2024-lesson-physics-objects/instructor/02-electrons.html#electron-4-vector-and-track-information).
+The full track information is not available in NanoAOD, but it contains, for example, the most pertinent information from its associated track: its impact parameter with respect to the primary interaction vertex. This information is available in NanoAOD variable , read more about it in the [pre-learning material](https://cms-opendata-workshop.github.io/workshop2024-lesson-physics-objects/instructor/02-electrons.html#electron-4-vector-and-track-information).
 
 ::::::::::::::
 
@@ -80,7 +82,7 @@ The full track information is not available in NanoAOD, but the most pertinent i
 
 ## NanoAOD with Particle Flow candidates
 
-Many CMS open data users have relied on the [Particle Flow information](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016#Packed_ParticleFlow_Candidates), available in the AOD and MiniAOD formats but not in the NanoAOD format. See the class description: [`pat::PackeedCandidate`](https://cmsdoxygen.web.cern.ch/cmsdoxygen/CMSSW_10_6_25/doc/html/d8/d79/classpat_1_1PackedCandidate.html).
+Many CMS open data users have relied on the [Particle Flow information](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016#Packed_ParticleFlow_Candidates), available in the AOD and MiniAOD formats but not in the NanoAOD format. See the class description: [`pat::PackedCandidate`](https://cmsdoxygen.web.cern.ch/cmsdoxygen/CMSSW_10_6_25/doc/html/d8/d79/classpat_1_1PackedCandidate.html).
 
 For the 2016 collision data, a selection of datasets has been processed in NanoAOD format enhanced with Particle Flow information. These datasets can be used in the same way as the usual NanoAOD datasets, they just contain more information.
 
@@ -249,12 +251,14 @@ unsigned int                          "bunchSpacingProducer"      ""            
 
 ::::::::::::::::::::::::
 
-You would follow the [instructions](https://opendata.cern.ch/docs/cms-getting-started-miniaod#data) to build a CMSSW analyzer module of your own to select the events and physics object of interest, compile the code and run the analysis in the container. The CMSSW output files are in the ROOT format and you could use the Python tools or the Root container to analyze them further.
+You would follow the [instructions](https://opendata.cern.ch/docs/cms-getting-started-miniaod#data) to build a CMSSW analyzer module of your own to select the events and physics object of interest, compile the code and run the analysis in the container. The CMSSW output files are in the Root format and you could use the Python tools or the Root container to analyze them further.
+
+The [previous workshops](https://cms-opendata-guide.web.cern.ch/cmsOpenData/workshops/) have extensive learning material for using CMSSW with MiniAOD (or AOD) data formats. Feel free to explore them!
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
 - Analyses that require detailed information about physics object constituents may require using MiniAOD instead of NanoAOD
-- Selected datasets include Particle flow candidates in an enriched NanoAOD format are available and their use does not require using CMS-specific software
+- Selected datasets include Particle Flow candidates in an enriched NanoAOD format are available and their use does not require using CMS-specific software
 - CMSSW environment is available as a Docker container and can be used to work with MiniAOD
 
 
