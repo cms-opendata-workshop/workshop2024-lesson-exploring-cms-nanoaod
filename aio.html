@@ -429,7 +429,7 @@ from a CMS dataset record on the <a href="https://opendata.cern.ch/" class="exte
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Find the NanoAOD variable listing for example for the <a href="https://opendata.cern.ch/record/30529" class="external-link">SingleElectron collision
 dataset from 2016 RunG</a>. Scroll down to “Dataset semantics” and open
@@ -462,7 +462,7 @@ Electron datasets contain a muon collection?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Use the search facets of the <a href="https://opendata.cern.ch/search?q=&amp;l=list&amp;order=desc&amp;p=1&amp;s=10&amp;sort=mostrecent" class="external-link">search
 page</a>.</p>
@@ -498,7 +498,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-02-nanoaod-miniaod"><p>Content from <a href="02-nanoaod-miniaod.html">Differences between NanoAOD and MiniAOD</a></p>
 <hr>
-<p>Last updated on 2024-07-23 |
+<p>Last updated on 2024-07-24 |
 
         <a href="https://github.com/cms-opendata-workshop/workshop2024-lesson-exploring-cms-nanoaod/edit/main/episodes/02-nanoaod-miniaod.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -695,12 +695,156 @@ NanoAOD) takes computing resources well beyond a single computer.</p>
 <a class="anchor" aria-label="anchor" href="#using-miniaod"></a>
 </h2>
 <hr class="half-width">
-<p>If you need the maximum coverage of CMS provides all that is needed
-to use data in the MiniAOD format</p>
-<p>show container</p>
-<p>show edmDumpEventContent</p>
-<p>miniAOD links for use: <a href="https://opendata.cern.ch/docs/cms-getting-started-miniaod" class="external-link">Getting
-started with miniAOD</a></p>
+<p>If you need the maximum coverage of CMS physics objects, know that
+CMS provides all that is needed to use data in the MiniAOD format.</p>
+<p>You would first find the <a href="https://opendata.cern.ch/docs/cms-guide-docker#images" class="external-link">CMSSW
+container image</a> with a version corresponding to the data release,
+and you would <a href="https://opendata.cern.ch/docs/cms-guide-docker#mount" class="external-link">start a
+container</a> in a similar manner as you did for the Python tools and
+Root containers that we will use in the workshop.</p>
+<p>We will <strong>not</strong> work through it now but if you started
+the CMSSW container, you would get a container prompt with the CMSSW
+working area:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">CMSSW</span> should now be available.</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">This</span> is a standalone image for CMSSW_10_6_30 slc7_amd64_gcc700.</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="kw">(</span><span class="ex">/code/CMSSW_10_6_30/src</span><span class="kw">)</span></span></code></pre>
+</div>
+<p>In this environment, you would be able to follow the instructions in
+<a href="https://opendata.cern.ch/docs/cms-getting-started-miniaod" class="external-link">Getting
+started with miniAOD</a>, and, for example, inspect the event content
+with CMSSW tools, e.g. with <code>edmDumpEventContent</code>.</p>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> See the MiniAOD event content </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div class="accordion-body">
+<p>Find a file name in the file listing of the <a href="https://opendata.cern.ch/record/30512" class="external-link">SingleElectron MiniAOD
+record</a> and dump its contents with</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">/code/CMSSW_10_6_30/src</span><span class="kw">)</span> <span class="ex">edmDumpEventContent</span> root://eospublic.cern.ch//eos/opendata/cms/Run2016G/SingleElectron/MINIAOD/UL2016_MiniAODv2-v2/120000/0014ADC0-08B8-1347-B496-CDB3A3A32317.root</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">Type</span>                                  Module                      Label             Process</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="ex">----------------------------------------------------------------------------------------------</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="ex">edm::TriggerResults</span>                   <span class="st">"TriggerResults"</span>            <span class="st">""</span>                <span class="st">"HLT"</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="ex">BXVector</span><span class="op">&lt;</span>GlobalAlgBlk<span class="op">&gt;</span>                <span class="st">"gtStage2Digis"</span>             <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="ex">BXVector</span><span class="op">&lt;</span>GlobalExtBlk<span class="op">&gt;</span>                <span class="st">"gtStage2Digis"</span>             <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="ex">BXVector</span><span class="op">&lt;</span>l1t::EGamma<span class="op">&gt;</span>                 <span class="st">"caloStage2Digis"</span>           <span class="st">"EGamma"</span>          <span class="st">"RECO"</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="ex">BXVector</span><span class="op">&lt;</span>l1t::EtSum<span class="op">&gt;</span>                  <span class="st">"caloStage2Digis"</span>           <span class="st">"EtSum"</span>           <span class="st">"RECO"</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="ex">BXVector</span><span class="op">&lt;</span>l1t::Jet<span class="op">&gt;</span>                    <span class="st">"caloStage2Digis"</span>           <span class="st">"Jet"</span>             <span class="st">"RECO"</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="ex">BXVector</span><span class="op">&lt;</span>l1t::Muon<span class="op">&gt;</span>                   <span class="st">"gmtStage2Digis"</span>            <span class="st">"Muon"</span>            <span class="st">"RECO"</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="ex">BXVector</span><span class="op">&lt;</span>l1t::Tau<span class="op">&gt;</span>                    <span class="st">"caloStage2Digis"</span>           <span class="st">"Tau"</span>             <span class="st">"RECO"</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="ex">HcalNoiseSummary</span>                      <span class="st">"hcalnoise"</span>                 <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="ex">L1GlobalTriggerReadoutRecord</span>          <span class="st">"gtDigis"</span>                   <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="ex">double</span>                                <span class="st">"fixedGridRhoAll"</span>           <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="ex">double</span>                                <span class="st">"fixedGridRhoFastjetAll"</span>    <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="ex">double</span>                                <span class="st">"fixedGridRhoFastjetAllCalo"</span>   <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="ex">double</span>                                <span class="st">"fixedGridRhoFastjetAllTmp"</span>   <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="ex">double</span>                                <span class="st">"fixedGridRhoFastjetCentral"</span>   <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="ex">double</span>                                <span class="st">"fixedGridRhoFastjetCentralCalo"</span>   <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="ex">double</span>                                <span class="st">"fixedGridRhoFastjetCentralChargedPileUp"</span>   <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="ex">double</span>                                <span class="st">"fixedGridRhoFastjetCentralNeutral"</span>   <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="ex">edm::TriggerResults</span>                   <span class="st">"TriggerResults"</span>            <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="ex">reco::BeamHaloSummary</span>                 <span class="st">"BeamHaloSummary"</span>           <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="ex">reco::BeamSpot</span>                        <span class="st">"offlineBeamSpot"</span>           <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a><span class="ex">reco::CSCHaloData</span>                     <span class="st">"CSCHaloData"</span>               <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>CTPPSLocalTrackLite<span class="op">&gt;</span>           <span class="st">"ctppsLocalTrackLiteProducer"</span>   <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>LumiScalers<span class="op">&gt;</span>                   <span class="st">"scalersRawToDigi"</span>          <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>l1extra::L1EmParticle<span class="op">&gt;</span>         <span class="st">"l1extraParticles"</span>          <span class="st">"Isolated"</span>        <span class="st">"RECO"</span></span>
+<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>l1extra::L1EmParticle<span class="op">&gt;</span>         <span class="st">"l1extraParticles"</span>          <span class="st">"NonIsolated"</span>     <span class="st">"RECO"</span></span>
+<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>l1extra::L1EtMissParticle<span class="op">&gt;</span>     <span class="st">"l1extraParticles"</span>          <span class="st">"MET"</span>             <span class="st">"RECO"</span></span>
+<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>l1extra::L1EtMissParticle<span class="op">&gt;</span>     <span class="st">"l1extraParticles"</span>          <span class="st">"MHT"</span>             <span class="st">"RECO"</span></span>
+<span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>l1extra::L1HFRings<span class="op">&gt;</span>            <span class="st">"l1extraParticles"</span>          <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-33"><a href="#cb2-33" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>l1extra::L1JetParticle<span class="op">&gt;</span>        <span class="st">"l1extraParticles"</span>          <span class="st">"Central"</span>         <span class="st">"RECO"</span></span>
+<span id="cb2-34"><a href="#cb2-34" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>l1extra::L1JetParticle<span class="op">&gt;</span>        <span class="st">"l1extraParticles"</span>          <span class="st">"Forward"</span>         <span class="st">"RECO"</span></span>
+<span id="cb2-35"><a href="#cb2-35" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>l1extra::L1JetParticle<span class="op">&gt;</span>        <span class="st">"l1extraParticles"</span>          <span class="st">"IsoTau"</span>          <span class="st">"RECO"</span></span>
+<span id="cb2-36"><a href="#cb2-36" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>l1extra::L1JetParticle<span class="op">&gt;</span>        <span class="st">"l1extraParticles"</span>          <span class="st">"Tau"</span>             <span class="st">"RECO"</span></span>
+<span id="cb2-37"><a href="#cb2-37" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>l1extra::L1MuonParticle<span class="op">&gt;</span>       <span class="st">"l1extraParticles"</span>          <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-38"><a href="#cb2-38" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::Conversion<span class="op">&gt;</span>              <span class="st">"gsfTracksOpenConversions"</span>   <span class="st">"gsfTracksOpenConversions"</span>   <span class="st">"RECO"</span></span>
+<span id="cb2-39"><a href="#cb2-39" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::ForwardProton<span class="op">&gt;</span>           <span class="st">"ctppsProtons"</span>              <span class="st">"multiRP"</span>         <span class="st">"RECO"</span></span>
+<span id="cb2-40"><a href="#cb2-40" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::ForwardProton<span class="op">&gt;</span>           <span class="st">"ctppsProtons"</span>              <span class="st">"singleRP"</span>        <span class="st">"RECO"</span></span>
+<span id="cb2-41"><a href="#cb2-41" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::Track<span class="op">&gt;</span>                   <span class="st">"displacedStandAloneMuons"</span>   <span class="st">""</span>                <span class="st">"RECO"</span></span>
+<span id="cb2-42"><a href="#cb2-42" tabindex="-1"></a><span class="ex">BXVector</span><span class="op">&lt;</span>GlobalExtBlk<span class="op">&gt;</span>                <span class="st">"simGtExtUnprefireable"</span>     <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-43"><a href="#cb2-43" tabindex="-1"></a><span class="ex">double</span>                                <span class="st">"prefiringweight"</span>           <span class="st">"nonPrefiringProb"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-44"><a href="#cb2-44" tabindex="-1"></a><span class="ex">double</span>                                <span class="st">"prefiringweight"</span>           <span class="st">"nonPrefiringProbDown"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-45"><a href="#cb2-45" tabindex="-1"></a><span class="ex">double</span>                                <span class="st">"prefiringweight"</span>           <span class="st">"nonPrefiringProbUp"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-46"><a href="#cb2-46" tabindex="-1"></a><span class="ex">edm::Association</span><span class="op">&lt;</span>vector<span class="op">&lt;</span>reco::DeDxHitInfo<span class="op">&gt;</span> <span class="op">&gt;</span>    <span class="st">"isolatedTracks"</span>            <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-47"><a href="#cb2-47" tabindex="-1"></a><span class="ex">edm::OwnVector</span><span class="op">&lt;</span>TrackingRecHit,edm::ClonePolicy<span class="op">&lt;</span>TrackingRecHit<span class="op">&gt;</span> <span class="op">&gt;</span>    <span class="st">"slimmedMuonTrackExtras"</span>    <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-48"><a href="#cb2-48" tabindex="-1"></a><span class="ex">edm::OwnVector</span><span class="op">&lt;</span>reco::BaseTagInfo,edm::ClonePolicy<span class="op">&lt;</span>reco::BaseTagInfo<span class="op">&gt;</span> <span class="op">&gt;</span>    <span class="st">"slimmedJetsPuppi"</span>          <span class="st">"tagInfos"</span>        <span class="st">"PAT"</span></span>
+<span id="cb2-49"><a href="#cb2-49" tabindex="-1"></a><span class="ex">edm::RangeMap</span><span class="op">&lt;</span>CSCDetId,edm::OwnVector<span class="op">&lt;</span>CSCSegment,edm::ClonePolicy<span class="op">&lt;</span>CSCSegment<span class="op">&gt;</span> <span class="op">&gt;</span>,edm::ClonePolicy<span class="op">&lt;</span>CSCSegment<span class="op">&gt;</span> <span class="op">&gt;</span>    <span class="st">"slimmedMuons"</span>              <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-50"><a href="#cb2-50" tabindex="-1"></a><span class="ex">edm::RangeMap</span><span class="op">&lt;</span>DTChamberId,edm::OwnVector<span class="op">&lt;</span>DTRecSegment4D,edm::ClonePolicy<span class="op">&lt;</span>DTRecSegment4D<span class="op">&gt;</span> <span class="op">&gt;</span>,edm::ClonePolicy<span class="op">&lt;</span>DTRecSegment4D<span class="op">&gt;</span> <span class="op">&gt;</span>    <span class="st">"slimmedMuons"</span>              <span class="st">""</span></span>
+<span id="cb2-51"><a href="#cb2-51" tabindex="-1"></a><span class="st">"PAT"</span></span>
+<span id="cb2-52"><a href="#cb2-52" tabindex="-1"></a><span class="ex">edm::SortedCollection</span><span class="op">&lt;</span>EcalRecHit,edm::StrictWeakOrdering<span class="op">&lt;</span>EcalRecHit<span class="op">&gt;</span> <span class="op">&gt;</span>    <span class="st">"reducedEgamma"</span>             <span class="st">"reducedEBRecHits"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-53"><a href="#cb2-53" tabindex="-1"></a><span class="ex">edm::SortedCollection</span><span class="op">&lt;</span>EcalRecHit,edm::StrictWeakOrdering<span class="op">&lt;</span>EcalRecHit<span class="op">&gt;</span> <span class="op">&gt;</span>    <span class="st">"reducedEgamma"</span>             <span class="st">"reducedEERecHits"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-54"><a href="#cb2-54" tabindex="-1"></a><span class="ex">edm::SortedCollection</span><span class="op">&lt;</span>EcalRecHit,edm::StrictWeakOrdering<span class="op">&lt;</span>EcalRecHit<span class="op">&gt;</span> <span class="op">&gt;</span>    <span class="st">"reducedEgamma"</span>             <span class="st">"reducedESRecHits"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-55"><a href="#cb2-55" tabindex="-1"></a><span class="ex">edm::SortedCollection</span><span class="op">&lt;</span>HBHERecHit,edm::StrictWeakOrdering<span class="op">&lt;</span>HBHERecHit<span class="op">&gt;</span> <span class="op">&gt;</span>    <span class="st">"reducedEgamma"</span>             <span class="st">"reducedHBHEHits"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-56"><a href="#cb2-56" tabindex="-1"></a><span class="ex">edm::SortedCollection</span><span class="op">&lt;</span>HBHERecHit,edm::StrictWeakOrdering<span class="op">&lt;</span>HBHERecHit<span class="op">&gt;</span> <span class="op">&gt;</span>    <span class="st">"slimmedHcalRecHits"</span>        <span class="st">"reducedHcalRecHits"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-57"><a href="#cb2-57" tabindex="-1"></a><span class="ex">edm::SortedCollection</span><span class="op">&lt;</span>HFRecHit,edm::StrictWeakOrdering<span class="op">&lt;</span>HFRecHit<span class="op">&gt;</span> <span class="op">&gt;</span>    <span class="st">"slimmedHcalRecHits"</span>        <span class="st">"reducedHcalRecHits"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-58"><a href="#cb2-58" tabindex="-1"></a><span class="ex">edm::SortedCollection</span><span class="op">&lt;</span>HORecHit,edm::StrictWeakOrdering<span class="op">&lt;</span>HORecHit<span class="op">&gt;</span> <span class="op">&gt;</span>    <span class="st">"slimmedHcalRecHits"</span>        <span class="st">"reducedHcalRecHits"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-59"><a href="#cb2-59" tabindex="-1"></a><span class="ex">edm::TriggerResults</span>                   <span class="st">"TriggerResults"</span>            <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-60"><a href="#cb2-60" tabindex="-1"></a><span class="ex">edm::ValueMap</span><span class="op">&lt;</span>float<span class="op">&gt;</span>                  <span class="st">"offlineSlimmedPrimaryVertices"</span>   <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-61"><a href="#cb2-61" tabindex="-1"></a><span class="ex">pat::PackedTriggerPrescales</span>           <span class="st">"patTrigger"</span>                <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-62"><a href="#cb2-62" tabindex="-1"></a><span class="ex">pat::PackedTriggerPrescales</span>           <span class="st">"patTrigger"</span>                <span class="st">"l1max"</span>           <span class="st">"PAT"</span></span>
+<span id="cb2-63"><a href="#cb2-63" tabindex="-1"></a><span class="ex">pat::PackedTriggerPrescales</span>           <span class="st">"patTrigger"</span>                <span class="st">"l1min"</span>           <span class="st">"PAT"</span></span>
+<span id="cb2-64"><a href="#cb2-64" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>CTPPSLocalTrackLite<span class="op">&gt;</span>           <span class="st">"ctppsLocalTrackLiteProducer"</span>   <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-65"><a href="#cb2-65" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::CompositeCandidate<span class="op">&gt;</span>       <span class="st">"oniaPhotonCandidates"</span>      <span class="st">"conversions"</span>     <span class="st">"PAT"</span></span>
+<span id="cb2-66"><a href="#cb2-66" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::Electron<span class="op">&gt;</span>                 <span class="st">"slimmedElectrons"</span>          <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-67"><a href="#cb2-67" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::Electron<span class="op">&gt;</span>                 <span class="st">"slimmedLowPtElectrons"</span>     <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-68"><a href="#cb2-68" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::IsolatedTrack<span class="op">&gt;</span>            <span class="st">"isolatedTracks"</span>            <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-69"><a href="#cb2-69" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::Jet<span class="op">&gt;</span>                      <span class="st">"slimmedJets"</span>               <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-70"><a href="#cb2-70" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::Jet<span class="op">&gt;</span>                      <span class="st">"slimmedJetsAK8"</span>            <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-71"><a href="#cb2-71" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::Jet<span class="op">&gt;</span>                      <span class="st">"slimmedJetsPuppi"</span>          <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-72"><a href="#cb2-72" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::Jet<span class="op">&gt;</span>                      <span class="st">"slimmedJetsAK8PFPuppiSoftDropPacked"</span>   <span class="st">"SubJets"</span>         <span class="st">"PAT"</span></span>
+<span id="cb2-73"><a href="#cb2-73" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::MET<span class="op">&gt;</span>                      <span class="st">"slimmedMETs"</span>               <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-74"><a href="#cb2-74" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::MET<span class="op">&gt;</span>                      <span class="st">"slimmedMETsNoHF"</span>           <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-75"><a href="#cb2-75" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::MET<span class="op">&gt;</span>                      <span class="st">"slimmedMETsPuppi"</span>          <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-76"><a href="#cb2-76" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::Muon<span class="op">&gt;</span>                     <span class="st">"slimmedMuons"</span>              <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-77"><a href="#cb2-77" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::PackedCandidate<span class="op">&gt;</span>          <span class="st">"lostTracks"</span>                <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-78"><a href="#cb2-78" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::PackedCandidate<span class="op">&gt;</span>          <span class="st">"packedPFCandidates"</span>        <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-79"><a href="#cb2-79" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::PackedCandidate<span class="op">&gt;</span>          <span class="st">"lostTracks"</span>                <span class="st">"eleTracks"</span>       <span class="st">"PAT"</span></span>
+<span id="cb2-80"><a href="#cb2-80" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::Photon<span class="op">&gt;</span>                   <span class="st">"slimmedOOTPhotons"</span>         <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-81"><a href="#cb2-81" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::Photon<span class="op">&gt;</span>                   <span class="st">"slimmedPhotons"</span>            <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-82"><a href="#cb2-82" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::Tau<span class="op">&gt;</span>                      <span class="st">"slimmedTaus"</span>               <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-83"><a href="#cb2-83" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::Tau<span class="op">&gt;</span>                      <span class="st">"slimmedTausBoosted"</span>        <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-84"><a href="#cb2-84" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>pat::TriggerObjectStandAlone<span class="op">&gt;</span>    <span class="st">"slimmedPatTrigger"</span>         <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-85"><a href="#cb2-85" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::CaloCluster<span class="op">&gt;</span>             <span class="st">"reducedEgamma"</span>             <span class="st">"reducedEBEEClusters"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-86"><a href="#cb2-86" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::CaloCluster<span class="op">&gt;</span>             <span class="st">"reducedEgamma"</span>             <span class="st">"reducedESClusters"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-87"><a href="#cb2-87" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::CaloCluster<span class="op">&gt;</span>             <span class="st">"reducedEgamma"</span>             <span class="st">"reducedOOTEBEEClusters"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-88"><a href="#cb2-88" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::CaloCluster<span class="op">&gt;</span>             <span class="st">"reducedEgamma"</span>             <span class="st">"reducedOOTESClusters"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-89"><a href="#cb2-89" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::CaloJet<span class="op">&gt;</span>                 <span class="st">"slimmedCaloJets"</span>           <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-90"><a href="#cb2-90" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::Conversion<span class="op">&gt;</span>              <span class="st">"reducedEgamma"</span>             <span class="st">"reducedConversions"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-91"><a href="#cb2-91" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::Conversion<span class="op">&gt;</span>              <span class="st">"reducedEgamma"</span>             <span class="st">"reducedSingleLegConversions"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-92"><a href="#cb2-92" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::DeDxHitInfo<span class="op">&gt;</span>             <span class="st">"isolatedTracks"</span>            <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-93"><a href="#cb2-93" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::ForwardProton<span class="op">&gt;</span>           <span class="st">"ctppsProtons"</span>              <span class="st">"multiRP"</span>         <span class="st">"PAT"</span></span>
+<span id="cb2-94"><a href="#cb2-94" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::ForwardProton<span class="op">&gt;</span>           <span class="st">"ctppsProtons"</span>              <span class="st">"singleRP"</span>        <span class="st">"PAT"</span></span>
+<span id="cb2-95"><a href="#cb2-95" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::GsfElectronCore<span class="op">&gt;</span>         <span class="st">"reducedEgamma"</span>             <span class="st">"reducedGedGsfElectronCores"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-96"><a href="#cb2-96" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::GsfTrack<span class="op">&gt;</span>                <span class="st">"reducedEgamma"</span>             <span class="st">"reducedGsfTracks"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-97"><a href="#cb2-97" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::PhotonCore<span class="op">&gt;</span>              <span class="st">"reducedEgamma"</span>             <span class="st">"reducedGedPhotonCores"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-98"><a href="#cb2-98" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::PhotonCore<span class="op">&gt;</span>              <span class="st">"reducedEgamma"</span>             <span class="st">"reducedOOTPhotonCores"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-99"><a href="#cb2-99" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::SuperCluster<span class="op">&gt;</span>            <span class="st">"reducedEgamma"</span>             <span class="st">"reducedOOTSuperClusters"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-100"><a href="#cb2-100" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::SuperCluster<span class="op">&gt;</span>            <span class="st">"reducedEgamma"</span>             <span class="st">"reducedSuperClusters"</span>   <span class="st">"PAT"</span></span>
+<span id="cb2-101"><a href="#cb2-101" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::TrackExtra<span class="op">&gt;</span>              <span class="st">"slimmedMuonTrackExtras"</span>    <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-102"><a href="#cb2-102" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::Vertex<span class="op">&gt;</span>                  <span class="st">"offlineSlimmedPrimaryVertices"</span>   <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-103"><a href="#cb2-103" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::VertexCompositePtrCandidate<span class="op">&gt;</span>    <span class="st">"slimmedKshortVertices"</span>     <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-104"><a href="#cb2-104" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::VertexCompositePtrCandidate<span class="op">&gt;</span>    <span class="st">"slimmedLambdaVertices"</span>     <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-105"><a href="#cb2-105" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>reco::VertexCompositePtrCandidate<span class="op">&gt;</span>    <span class="st">"slimmedSecondaryVertices"</span>   <span class="st">""</span>                <span class="st">"PAT"</span></span>
+<span id="cb2-106"><a href="#cb2-106" tabindex="-1"></a><span class="ex">vector</span><span class="op">&lt;</span>string<span class="op">&gt;</span>                        <span class="st">"slimmedPatTrigger"</span>         <span class="st">"filterLabels"</span>    <span class="st">"PAT"</span></span>
+<span id="cb2-107"><a href="#cb2-107" tabindex="-1"></a><span class="ex">unsigned</span> int                          <span class="st">"bunchSpacingProducer"</span>      <span class="st">""</span>                <span class="st">"PAT"</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>You would follow the <a href="https://opendata.cern.ch/docs/cms-getting-started-miniaod#data" class="external-link">instructions</a>
+to build a CMSSW analyzer module of your own to select the events and
+physics object of interest, compile the code and run the analysis in the
+container. The CMSSW output files are in the ROOT format and you could
+use the Python tools or the Root container to analyze them further.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -898,7 +1042,7 @@ on the <code>cernopendata-client</code>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Search for the ZprimeToTT samples in the CERN Open Data Portal. The
 resulting query is <a href="https://opendata.cern.ch/search?q=ZprimeToTT%2A&amp;f=experiment%3ACMS&amp;f=year%3A2016&amp;f=file_type%3Ananoaodsim&amp;f=category%3AExotica%2Bsubcategory%3AHeavy%20Gauge%20Bosons&amp;f=type%3ADataset&amp;l=list&amp;order=asc&amp;p=1&amp;s=10&amp;sort=bestmatch" class="external-link">here</a>.</p>
@@ -976,7 +1120,7 @@ http://opendata.cern.ch/eos/opendata/cms/mc/RunIISummer20UL16NanoAODv9/ZPrimeToT
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 
 </div>
@@ -1056,8 +1200,8 @@ any links that you are not going to use.
   "url": "https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/aio.html",
   "identifier": "https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/aio.html",
   "dateCreated": "2024-07-13",
-  "dateModified": "2024-07-23",
-  "datePublished": "2024-07-23"
+  "dateModified": "2024-07-24",
+  "datePublished": "2024-07-24"
 }
 
   </script><script>
