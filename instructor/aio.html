@@ -432,7 +432,7 @@ from a CMS dataset record on the <a href="https://opendata.cern.ch/" class="exte
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Find the NanoAOD variable listing for example for the <a href="https://opendata.cern.ch/record/30529" class="external-link">SingleElectron collision
 dataset from 2016 RunG</a>. Scroll down to “Dataset semantics” and open
@@ -465,7 +465,7 @@ Electron datasets contain a muon collection?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Use the search facets of the <a href="https://opendata.cern.ch/search?q=&amp;l=list&amp;order=desc&amp;p=1&amp;s=10&amp;sort=mostrecent" class="external-link">search
 page</a>.</p>
@@ -884,10 +884,10 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-03-nanoaod-dataset"><p>Content from <a href="03-nanoaod-dataset.html">NanoAOD datasets</a></p>
 <hr>
-<p>Last updated on 2024-07-23 |
+<p>Last updated on 2024-07-26 |
 
         <a href="https://github.com/cms-opendata-workshop/workshop2024-lesson-exploring-cms-nanoaod/edit/main/episodes/03-nanoaod-dataset.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 10 minutes</p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 15 minutes</p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -949,9 +949,11 @@ Z’ datasets.</p>
 and search for “Zprime*“:</p>
 <figure><img src="../fig/ZprimeODP.png" alt="Search for Zprime* at the CODP" class="figure mx-auto d-block"></figure><p>The query results are <a href="https://opendata.cern.ch/search?q=Zprime%2A&amp;l=list&amp;order=asc&amp;p=1&amp;s=10&amp;sort=bestmatch" class="external-link">here</a>
 and you can see that there are many (over 1000) records returned:</p>
-<figure><img src="../fig/ZprimeODP-results.png" alt="Search results for Zprime*" class="figure mx-auto d-block"></figure><p>Let’s narrow down the results and select “Type: Dataset”,
-“Experiment: CMS”, “Year: 2016”, “File type: nanoaodsim”, and “Category:
-Heavy Gauge Bosons”. We’ve now reduced the number of <a href="https://opendata.cern.ch/search?q=Zprime%2A&amp;f=experiment%3ACMS&amp;f=year%3A2016&amp;f=file_type%3Ananoaodsim&amp;f=category%3AExotica%2Bsubcategory%3AHeavy%20Gauge%20Bosons&amp;f=type%3ADataset&amp;l=list&amp;order=asc&amp;p=1&amp;s=10&amp;sort=bestmatch" class="external-link">matches</a>
+<figure><img src="../fig/ZprimeODP-results.png" alt="Search results for Zprime*" class="figure mx-auto d-block"></figure><p>Let’s narrow down the results and select <strong>Dataset</strong>
+under Type, <strong>CMS</strong> under Experiment, <strong>2016</strong>
+under “Year”, <strong>nanoaodsim</strong> under File type, and
+<strong>Heavy Gauge Bosons</strong> under Category. We’ve now reduced
+the number of <a href="https://opendata.cern.ch/search?q=Zprime%2A&amp;f=experiment%3ACMS&amp;f=year%3A2016&amp;f=file_type%3Ananoaodsim&amp;f=category%3AExotica%2Bsubcategory%3AHeavy%20Gauge%20Bosons&amp;f=type%3ADataset&amp;l=list&amp;order=asc&amp;p=1&amp;s=10&amp;sort=bestmatch" class="external-link">matches</a>
 from over 1000 down to 210:</p>
 <figure><img src="../fig/ZprimeODP-results2.png" alt="Narrowed search results for Zprime*" class="figure mx-auto d-block"></figure><p>We can discern some of the logic behind the simulated dataset naming.
 “Zprime” is the particle produced and it decays to various products. We
@@ -960,25 +962,129 @@ which shows up as the third result so let’s <a href="https://opendata.cern.ch/
 the search</a> further and search with “ZprimeToTT*“:</p>
 <figure><img src="../fig/ZprimeToTT-results.png" alt="Narrowed search results for Zprime*" class="figure mx-auto d-block"></figure><p>We can also discern that the dataset names also include the mass (in
 GeV) of the hypothetical Z’ (e.g. “_M2000”).</p>
-<p>TO-DO: what do the other strings mean in the dataset name?</p>
-<p>Possible challenge: have them select a mass and search for the
-dataset and select a file for the next part.</p>
+<div id="why-such-long-dataset-names" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="why-such-long-dataset-names" class="callout-inner">
+<h3 class="callout-title">Why such long dataset names?<a class="anchor" aria-label="anchor" href="#why-such-long-dataset-names"></a>
+</h3>
+<div class="callout-content">
+<p>CMS open data are the same files that have been used in the data
+analysis by CMS members. The names come from naming conventions for the
+production system.</p>
+<p>Go back to the <a href="https://cms-opendata-workshop.github.io/workshop2024-lesson-dataset-scouting/instructor/03-what-data-is-available.html#monte-carlo" class="external-link">pre-exercise</a>
+for a brief explanation of the simulated dataset names.</p>
+</div>
+</div>
+</div>
+<div id="exercise-1-select-a-z-mass-and-find-the-corresponding-dataset" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-1-select-a-z-mass-and-find-the-corresponding-dataset" class="callout-inner">
+<h3 class="callout-title">Exercise 1: Select a Z’ mass and find the corresponding dataset<a class="anchor" aria-label="anchor" href="#exercise-1-select-a-z-mass-and-find-the-corresponding-dataset"></a>
+</h3>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<p>Search with “ZprimeToTT_M<mass>” where <mass> is the value you
+selected.</mass></mass></p>
+</div>
+</div>
+</div>
+</div>
 <p>Next, let’s use the <code>cernopendata-client</code> command-line
 tool to find the datasets and fetch a file.</p>
+<div id="exercise-2-find-a-file-name-in-the-dataset" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-2-find-a-file-name-in-the-dataset" class="callout-inner">
+<h3 class="callout-title">Exercise 2: Find a file name in the dataset<a class="anchor" aria-label="anchor" href="#exercise-2-find-a-file-name-in-the-dataset"></a>
+</h3>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<p>Go back to the <a href="https://cms-opendata-workshop.github.io/workshop2024-lesson-dataset-scouting/instructor/04-cli-through-cernopendata-client.html" class="external-link">pre-exercise</a>
+to see how to get the file names with the command-line tool.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="section level3">
 <h3 id="explore-a-file">Explore a file<a class="anchor" aria-label="anchor" href="#explore-a-file"></a>
 </h3>
-<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
+<p>We will now have a look at the file contents.</p>
+<div id="how-to-see-the-variable-names" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="how-to-see-the-variable-names" class="callout-inner">
+<h3 class="callout-title">How to see the variable names?<a class="anchor" aria-label="anchor" href="#how-to-see-the-variable-names"></a>
+</h3>
+<div class="callout-content">
+<p>Remember that each NanoAOD/NanoAODSIM dataset has the variable list
+linked to the record:</p>
+<figure><img src="../fig/ZprimeVariableList.png" alt="Link to the variable list in the record" class="figure mx-auto d-block"></figure>
+</div>
+</div>
+</div>
+<p>Now let us plot the value of some these variables. Open the
+<code>my_python</code> container</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">docker</span> start <span class="at">-i</span> my_python</span></code></pre>
+</div>
+<p>If you want to use jupyter notebooks, start jupyter-lab with</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">jupyter-lab</span> <span class="at">--ip</span><span class="op">=</span>0.0.0.0 <span class="at">--no-browser</span></span></code></pre>
+</div>
+<p>Open the link given in the message on your browser. Choose the icon
+under “Notebook”.</p>
+<div id="exercise-3-explore-the-file-with-the-python-tools" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-3-explore-the-file-with-the-python-tools" class="callout-inner">
+<h3 class="callout-title">Exercise 3: Explore the file with the Python tools<a class="anchor" aria-label="anchor" href="#exercise-3-explore-the-file-with-the-python-tools"></a>
+</h3>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
-  <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
-<p>Inline instructor notes can help inform instructors of timing
-challenges associated with the lessons. They appear in the “Instructor
-View”</p>
+<p>Go back to the <a href="https://cms-opendata-workshop.github.io/workshop2024-lesson-cpp-root-python/instructor/06-uproot.html" class="external-link">pre-exercise</a>
+to see how to open the file names using uproot.</p>
 </div>
 </div>
 </div>
@@ -992,14 +1098,8 @@ View”</p>
 </h3>
 <div class="callout-content">
 <ul>
-<li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
+<li>Use search facets and text search with wildcards to narrow your
+search.</li>
 </ul>
 </div>
 </div>
@@ -1228,8 +1328,8 @@ any links that you are not going to use.
   "url": "https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/aio.html",
   "identifier": "https://cms-opendata-workshop.github.io/workshop2024-lesson-exploring-cms-nanoaod/instructor/aio.html",
   "dateCreated": "2024-07-13",
-  "dateModified": "2024-07-24",
-  "datePublished": "2024-07-24"
+  "dateModified": "2024-07-26",
+  "datePublished": "2024-07-26"
 }
 
   </script><script>
