@@ -1,7 +1,7 @@
 ---
 title: "NanoAOD datasets"
 teaching: 10
-exercises: 5
+exercises: 20
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
