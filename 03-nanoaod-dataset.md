@@ -128,6 +128,10 @@ Open the link given in the message on your browser. Choose the icon under “Not
 
 Open the file and print the variable names.
 
+Make a plot of a variable that is a single number in an event, for example the number of secondary vertices.
+
+Then plot some property of the selected variables, for example a property of the secondary vertices.
+
 :::::::::::::: solution
 
 Go back to the [pre-exercise](https://cms-opendata-workshop.github.io/workshop2024-lesson-cpp-root-python/instructor/06-uproot.html) to see how to open the file names using uproot.
@@ -150,7 +154,7 @@ import awkward as ak
 
 :::::::::
 
-Open the file with `uproot` and inspect the first layer
+Open the file with `uproot` and inspect the first layer.
 
 ::::::::: spoiler
 
@@ -202,7 +206,7 @@ plt.hist(events['nSV'].array(), range=[0,20], bins=20)
 
 :::::::::
 
-Then, choose a variable of a physics object that can many in a single event. You could take the pt values of electrons or muons, or if we remain with the secondary vertices, take for example `SV_dxy`, the 2D decay length in cm.
+Then, choose a variable of a physics object that can be many in a single event. You could take the pt values of electrons or muons, or if we remain with the secondary vertices, take for example `SV_dxy`, the 2D decay length in cm.
 
 This is now a *jagged* array and to plot the values, you will need to use the `flatten()` function from `awkward`.
 
@@ -241,9 +245,11 @@ print(events['SV_dxy'].array()[3])
 ### Use the `flatten()` function to plot the values
 
 ```python
-plt.hist(ak.flatten(events['SV_dxy'].array())
+plt.hist(ak.flatten(events['SV_dxy'].array()), bins=50)
+plt.show()
 ```
 
+![](fig/ZprimeSVdxy.png){alt='Plot of 2d decay length of secondary vertices'}
 
 :::::::::
 
@@ -257,6 +263,7 @@ plt.hist(ak.flatten(events['SV_dxy'].array())
 
 - Use search facets and text search with wildcards to narrow your search.
 - You can find the variable names with a brief explanation from the record, explained more in detail in the prelearning lesson and print them out directly from the file.
+- NanoAOD files can be opened using the `uproot` package and the `awkward` packaged can be use to handle varying-length arrays. 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
