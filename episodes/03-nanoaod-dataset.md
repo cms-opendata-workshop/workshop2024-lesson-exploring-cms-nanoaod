@@ -118,6 +118,7 @@ jupyter-lab --ip=0.0.0.0 --no-browser
 
 Open the link given in the message on your browser. Choose the icon under “Notebook”.
 
+::::::::::::::::::::: challenge
 
 ### Exercise 3: Explore the file with the Python tools
 
