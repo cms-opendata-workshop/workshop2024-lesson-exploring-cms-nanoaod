@@ -68,7 +68,7 @@ Go back to the [pre-exercise](https://cms-opendata-workshop.github.io/workshop20
 
 :::::::::::::: solution
 
-Search with "ZprimeToTT_M<mass>" where <mass> is the value you selected.
+Search with "ZprimeToTT_M`<mass>`" where `<mass>` is the value you selected.
 
 ::::::::::::::
 
@@ -96,11 +96,13 @@ We will now have a look at the file contents.
 
 :::::::::::::::::: callout 
 
-### How to see the variable names?
+### How to know what variables are there?
 
 Remember that each NanoAOD/NanoAODSIM dataset has the variable list linked to the record:
 
 ![](fig/ZprimeVariableList.png){alt='Link to the variable list in the record'}
+
+And do not forget that the [prelearning lesson on Physics Objects](https://cms-opendata-workshop.github.io/workshop2024-lesson-physics-objects/instructor/index.html) explains them in more detail!
 
 ::::::::::::::::::
 
@@ -109,6 +111,8 @@ Now let us plot the value of some these variables. Open the `my_python` containe
 ```bash
 docker start -i my_python
 ```
+
+You can either write your code in a Python script, or use a jupyter notebook.
 
 If you want to use jupyter notebooks, start jupyter-lab with
 
@@ -122,19 +126,137 @@ Open the link given in the message on your browser. Choose the icon under “Not
 
 ### Exercise 3: Explore the file with the Python tools
 
+Open the file and print the variable names.
+
 :::::::::::::: solution
 
 Go back to the [pre-exercise](https://cms-opendata-workshop.github.io/workshop2024-lesson-cpp-root-python/instructor/06-uproot.html) to see how to open the file names using uproot.
 
+If you need exercising, try to do this without looking at the solutions!
+
+First import the Python packages.
+
+::::::::: spoiler
+
+### Import
+
+```python
+import numpy as np
+import matplotlib.pylab as plt
+
+import uproot
+import awkward as ak
+```
+
+:::::::::
+
+Open the file with `uproot` and inspect the first layer
+
+::::::::: spoiler
+
+### Open the file
+
+```python
+infile_name = '<your selected file>'
+infile = uproot.open(infile_name)
+
+keys = infile.keys()
+print(keys)
+```
+
+:::::::::
+
+Check what variables are available in `Events`.
+
+::::::::: spoiler
+
+### Inspect variables
+
+```python
+events = infile['Events']
+print(events.keys())
+```
+
+Whoopsie, that was long! Note that these are the same variables as you've seen listed in the variable list linked to the record.
+
+:::::::::
+
+Choose first a variable that is a single number in an event, typically a number of certain objects in an event. You could take number of muons, electrons or other particles, but let us take the number of secondary vertices, `nSV`. They are points identified as starting points of a track, different from the collision point, the primary vertex. It is typically the decay point of some short-lived particle. Make a histogram.
+
+::::::::: spoiler
+
+### Plot values of a "per-event" variable
+
+
+```python
+plt.hist(events['nSV'].array())
+```
+
+or if you want the values neatly in bins with integer values:
+
+```python
+plt.hist(events['nSV'].array(), range=[0,20], bins=20)
+```
+
+![](fig/ZprimeNsv.png){alt='Plot of number of secondary vertices'}
+
+:::::::::
+
+Then, choose a variable of a physics object that can many in a single event. You could take the pt values of electrons or muons, or if we remain with the secondary vertices, take for example `SV_dxy`, the 2D decay length in cm.
+
+This is now a *jagged* array and to plot the values, you will need to use the `flatten()` function from `awkward`.
+
+But first, inspect the array elements to see the multiple values per event
+
+::::::::: spoiler
+
+### Inspect the array by printing some elements
+
+Print the number or secondary vertices per event (the value we just plotted):
+
+```python
+print(events['nSV'].array())
+```
+
+Now, print the 2D decay lengths:
+
+```python
+print(events['SV_dxy'].array())
+```
+
+and some single elements of it so that you see that the lenght of corresponds to the number of secondary vertices:
+
+```python
+print(events['SV_dxy'].array()[0])
+print(events['SV_dxy'].array()[1])
+print(events['SV_dxy'].array()[2])
+print(events['SV_dxy'].array()[3])
+```
+
+:::::::::
+
+
+::::::::: spoiler
+
+### Use the `flatten()` function to plot the values
+
+```python
+plt.hist(ak.flatten(events['SV_dxy'].array())
+```
+
+
+:::::::::
+
 ::::::::::::::
+
 
 ::::::::::::::::::::
 
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Use search facets and text search with wildcards to narrow your search. 
+- Use search facets and text search with wildcards to narrow your search.
+- You can find the variable names with a brief explanation from the record, explained more in detail in the prelearning lesson and print them out directly from the file.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-[r-markdown]: https://rmarkdown.rstudio.com/
