@@ -1,7 +1,7 @@
 ---
 title: "NanoAOD datasets"
 teaching: 10
-exercises: 0
+exercises: 5
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
@@ -42,7 +42,7 @@ The query results are [here](https://opendata.cern.ch/search?q=Zprime%2A&l=list&
 
 ![](fig/ZprimeODP-results.png){alt='Search results for Zprime*'}
 
-Let's narrow down the results and select "Type: Dataset", "Experiment: CMS", "Year: 2016", "File type: nanoaodsim", and "Category: Heavy Gauge Bosons". We've now reduced the number of [matches](https://opendata.cern.ch/search?q=Zprime%2A&f=experiment%3ACMS&f=year%3A2016&f=file_type%3Ananoaodsim&f=category%3AExotica%2Bsubcategory%3AHeavy%20Gauge%20Bosons&f=type%3ADataset&l=list&order=asc&p=1&s=10&sort=bestmatch) from over 1000 down to 210:
+Let's narrow down the results and select **Dataset** under Type, **CMS** under Experiment, **2016** under "Year", **nanoaodsim** under File type, and **Heavy Gauge Bosons** under Category. We've now reduced the number of [matches](https://opendata.cern.ch/search?q=Zprime%2A&f=experiment%3ACMS&f=year%3A2016&f=file_type%3Ananoaodsim&f=category%3AExotica%2Bsubcategory%3AHeavy%20Gauge%20Bosons&f=type%3ADataset&l=list&order=asc&p=1&s=10&sort=bestmatch) from over 1000 down to 210:
 
 ![](fig/ZprimeODP-results2.png){alt='Narrowed search results for Zprime*'}
 
@@ -52,28 +52,88 @@ We can discern some of the logic behind the simulated dataset naming. "Zprime" i
 
 We can also discern that the dataset names also include the mass (in GeV) of the hypothetical Z' (e.g. "_M2000"). 
 
-TO-DO: what do the other strings mean in the dataset name?
+:::::::::::::::::: callout 
 
-Possible challenge: have them select a mass and search for the dataset and select a file for the next part.
+### Why such long dataset names?
+
+CMS open data are the same files that have been used in the data analysis by CMS members. The names come from naming conventions for the production system.
+
+Go back to the [pre-exercise](https://cms-opendata-workshop.github.io/workshop2024-lesson-dataset-scouting/instructor/03-what-data-is-available.html#monte-carlo) for a brief explanation of the simulated dataset names.
+
+::::::::::::::::::
+
+::::::::::::::::::::: challenge
+
+### Exercise 1: Select a Z' mass and find the corresponding dataset
+
+:::::::::::::: solution
+
+Search with "ZprimeToTT_M<mass>" where <mass> is the value you selected.
+
+::::::::::::::
+
+::::::::::::::::::::
+
 
 Next, let's use the `cernopendata-client` command-line tool to find the datasets
 and fetch a file.
 
+::::::::::::::::::::: challenge
+
+### Exercise 2: Find a file name in the dataset
+
+:::::::::::::: solution
+
+Go back to the [pre-exercise](https://cms-opendata-workshop.github.io/workshop2024-lesson-dataset-scouting/instructor/04-cli-through-cernopendata-client.html) to see how to get the file names with the command-line tool.
+
+::::::::::::::
+
+::::::::::::::::::::
+
 ### Explore a file
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
+We will now have a look at the file contents.
 
-Inline instructor notes can help inform instructors of timing challenges
-associated with the lessons. They appear in the "Instructor View"
+:::::::::::::::::: callout 
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+### How to see the variable names?
+
+Remember that each NanoAOD/NanoAODSIM dataset has the variable list linked to the record:
+
+![](fig/ZprimeVariableList.png){alt='Link to the variable list in the record'}
+
+::::::::::::::::::
+
+Now let us plot the value of some these variables. Open the `my_python` container 
+
+```bash
+docker start -i my_python
+```
+
+If you want to use jupyter notebooks, start jupyter-lab with
+
+```bash
+jupyter-lab --ip=0.0.0.0 --no-browser
+```
+
+Open the link given in the message on your browser. Choose the icon under “Notebook”.
+
+::::::::::::::::::::: challenge
+
+### Exercise 3: Explore the file with the Python tools
+
+:::::::::::::: solution
+
+Go back to the [pre-exercise](https://cms-opendata-workshop.github.io/workshop2024-lesson-cpp-root-python/instructor/06-uproot.html) to see how to open the file names using uproot.
+
+::::::::::::::
+
+::::::::::::::::::::
+
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Use `.md` files for episodes when you want static content
-- Use `.Rmd` files for episodes when you need to generate output
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
+- Use search facets and text search with wildcards to narrow your search. 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
