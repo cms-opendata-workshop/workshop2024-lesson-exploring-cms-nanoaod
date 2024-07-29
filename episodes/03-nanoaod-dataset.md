@@ -134,7 +134,7 @@ Then plot some property of the selected variables, for example a property of the
 
 :::::::::::::: solution
 
-Go back to the [pre-exercise](https://cms-opendata-workshop.github.io/workshop2024-lesson-cpp-root-python/instructor/06-uproot.html) to see how to open the file names using uproot.
+Go back to the [pre-exercise](https://cms-opendata-workshop.github.io/workshop2024-lesson-cpp-root-python/instructor/06-uproot.html) to see how to open the file using uproot.
 
 If you need exercising, try to do this without looking at the solutions!
 
